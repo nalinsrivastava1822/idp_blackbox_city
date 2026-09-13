@@ -1,6 +1,12 @@
 import json
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
+
+try:
+    import torch
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
+    print("Warning: torch/transformers not installed. LLM fallback will be used.")
 
 MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 
@@ -25,15 +31,19 @@ STRICT RULES:
 - Return ONLY valid JSON.
 """
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL_NAME,
-    device_map="auto",
-    torch_dtype=torch.float16
-)
-model.eval()
+tokenizer, model = None, None
+if TORCH_AVAILABLE:
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_NAME,
+        device_map="auto",
+        torch_dtype=torch.float16
+    )
+    model.eval()
 
 def explain_patient(patient_data):
+    if not TORCH_AVAILABLE:
+        raise RuntimeError("Torch/Transformers not installed. Skipping local LLM inference.")
     user_prompt = f"""
 Analyze this BLACKBOX CITY patient state:
 

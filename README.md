@@ -1,48 +1,42 @@
-# BLACKBOX CITY LLM HANDOFF
+# BLACKBOX CITY - Command Center
 
-This package contains the working LLM explanation layer for the BLACKBOX CITY prototype.
+An AI digital-twin command center for disaster-resilient public health response.
 
-## Model
-Base model:
-Qwen/Qwen2.5-1.5B-Instruct
+## Architecture
 
-## Important
-This is the WORKING prompted base-model implementation.
-The earlier experimental LoRA adapter is NOT included because it produced
-unreliable output during testing.
+This monorepo consists of three layers:
 
-## Files
-- llm_inference.py        Main LLM inference code
-- system_prompt.txt       BLACKBOX CITY system prompt
-- example_input.json       Input contract example
-- example_output.json      Expected output structure
-- requirements.txt         Python dependencies
+1. **`backend/`**: FastAPI server, SQLAlchemy (SQLite), Digital Twin State Manager, ML/LLM engines, and MQTT listener.
+2. **`frontend/`**: React + Vite live dashboard with WebSockets.
+3. **`edge-sim/`**: Python script generating synthetic stethoscope vitals and simulating Wi-Fi/LoRa network fallback via MQTT.
 
-## Pipeline
-Patient/Stethoscope JSON
-    ->
-XGBoost prediction
-    ->
-Digital Twin
-    ->
-LLM
-    ->
-Structured explanation JSON
+## Setup Instructions
 
-## Backend usage
-
-Install:
+### 1. Backend
+```bash
+cd backend
 pip install -r requirements.txt
+uvicorn main:app --host 0.0.0.0 --port 8000
+```
+*(The backend connects to the public `test.mosquitto.org` broker, so no local MQTT installation is required!)*
 
-Then:
-from llm_inference import explain_patient
+### 2. Frontend
+In a new terminal:
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-result = explain_patient(patient_json)
+### 3. Edge Simulator (Data Generator)
+In a third terminal:
+```bash
+cd edge-sim
+pip install paho-mqtt
+python simulator.py
+```
 
-The LLM should receive the structured output of the ML model and
-Digital Twin. It should NOT independently determine or override the
-ML risk classification.
+Open the frontend URL (usually `http://localhost:5173`) to view the real-time command center dashboard.
 
-## Safety
-This is a prototype explanation layer. It is not a medical diagnostic
-system and must not be used to make diagnosis or treatment decisions.
+### Fallback/LoRa Mode
+To simulate a network degradation (which drops transmission speed and updates the UI indicator), edit `edge-sim/simulator.py` and set `LORA_FALLBACK_MODE = True`.

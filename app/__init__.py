@@ -1,1 +1,0 @@
-"""BLACKBOX CITY prototype application."""

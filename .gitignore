@@ -5,4 +5,6 @@ __pycache__/
 data/
 models/*.joblib
 !patient_risk_model.joblib
-
+*.db
+*.sqlite3
+*.log
