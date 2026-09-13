@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+data/
+models/*.joblib
+!patient_risk_model.joblib
+

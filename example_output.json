@@ -1,0 +1,19 @@
+{
+  "summary": "The patient is currently classified as HIGH prototype risk and the digital twin indicates a stable state.",
+  "key_observations": [
+    "Heart rate is 92 BPM.",
+    "Respiratory rate is 21 BPM.",
+    "Murmur probability is 18%.",
+    "Wheeze probability is 21%.",
+    "Crackle probability is 15%."
+  ],
+  "risk_assessment": {
+    "level": "HIGH",
+    "trend": "STABLE"
+  },
+  "alerts": [
+    "HIGH_RISK"
+  ],
+  "recommended_action": "Prioritize clinical review within the prototype workflow.",
+  "safety_note": "This is a prototype ML assessment and is not a clinical diagnosis."
+}

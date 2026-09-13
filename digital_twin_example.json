@@ -1,0 +1,81 @@
+{
+    "patient_id": "BBX-DEMO-001",
+    "baseline": {
+        "timestamp": "2026-08-18T10:13:31.303655",
+        "risk_level": "MODERATE",
+        "predicted_state": "MODERATE",
+        "risk_score": 0.48,
+        "confidence_percentage": 48.0,
+        "trend": "INITIAL_ASSESSMENT",
+        "score_change": null
+    },
+    "previous_state": {
+        "timestamp": "2026-08-18T12:13:31.303655",
+        "risk_level": "HIGH",
+        "predicted_state": "HIGH",
+        "risk_score": 0.68,
+        "confidence_percentage": 68.0,
+        "trend": "DETERIORATING",
+        "score_change": 0.2
+    },
+    "current_state": {
+        "timestamp": "2026-08-18T14:13:31.303655",
+        "risk_level": "HIGH",
+        "predicted_state": "HIGH",
+        "risk_score": 0.45,
+        "confidence_percentage": 45.0,
+        "trend": "IMPROVING",
+        "score_change": -0.23
+    },
+    "trend": "IMPROVING",
+    "history": [
+        {
+            "timestamp": "2026-08-18T10:13:31.303655",
+            "risk_level": "MODERATE",
+            "predicted_state": "MODERATE",
+            "risk_score": 0.48,
+            "confidence_percentage": 48.0,
+            "trend": "INITIAL_ASSESSMENT",
+            "score_change": null
+        },
+        {
+            "timestamp": "2026-08-18T12:13:31.303655",
+            "risk_level": "HIGH",
+            "predicted_state": "HIGH",
+            "risk_score": 0.68,
+            "confidence_percentage": 68.0,
+            "trend": "DETERIORATING",
+            "score_change": 0.2
+        },
+        {
+            "timestamp": "2026-08-18T14:13:31.303655",
+            "risk_level": "HIGH",
+            "predicted_state": "HIGH",
+            "risk_score": 0.45,
+            "confidence_percentage": 45.0,
+            "trend": "IMPROVING",
+            "score_change": -0.23
+        }
+    ],
+    "alerts": [
+        {
+            "type": "RISK_ESCALATION",
+            "severity": "HIGH",
+            "message": "Patient has transitioned into the HIGH prototype-risk category.",
+            "timestamp": "2026-08-18T12:13:31.303655"
+        },
+        {
+            "type": "RAPID_DETERIORATION",
+            "severity": "HIGH",
+            "message": "Patient risk score has increased significantly compared with the previous observation.",
+            "timestamp": "2026-08-18T12:13:31.303655"
+        },
+        {
+            "type": "IMPROVEMENT",
+            "severity": "INFO",
+            "message": "Patient risk score has decreased significantly compared with the previous observation.",
+            "timestamp": "2026-08-18T14:13:31.303655"
+        }
+    ],
+    "observation_count": 3
+}

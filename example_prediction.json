@@ -1,0 +1,33 @@
+{
+    "patient_id": "BBX-001",
+    "timestamp": "2026-08-18T09:54:25.571226",
+    "model": {
+        "name": "XGBoost",
+        "version": "prototype_v1"
+    },
+    "prediction": {
+        "risk_level": "HIGH",
+        "predicted_state": "HIGH",
+        "risk_score": 0.6152,
+        "confidence_percentage": 61.52,
+        "class_probabilities": {
+            "HIGH": 0.6152,
+            "LOW": 0.2577,
+            "MODERATE": 0.1271
+        }
+    },
+    "assessment": {
+        "priority": "URGENT_REVIEW",
+        "summary": "Patient BBX-001 has been classified as HIGH prototype risk with 61.5% model confidence. Further clinical review may be appropriate.",
+        "interpretation": "The model places this patient in the HIGH prototype-risk category based on the learned health-score patterns."
+    },
+    "digital_twin": {
+        "state": "HIGH",
+        "risk_score": 0.6152,
+        "trend": "INITIAL_ASSESSMENT"
+    },
+    "clinical_safety": {
+        "is_clinical_diagnosis": false,
+        "message": "This is a prototype ML prediction and must not be used as a medical diagnosis or treatment decision."
+    }
+}

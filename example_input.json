@@ -1,0 +1,35 @@
+{
+  "patient_id": "BBX-001",
+  "patient": {
+    "age": 42,
+    "gender": "Female",
+    "medical_condition": "None"
+  },
+  "auscultation": {
+    "heart_rate_bpm": 92,
+    "respiratory_rate_bpm": 21,
+    "murmur_probability": 0.18,
+    "wheeze_probability": 0.21,
+    "crackle_probability": 0.15
+  },
+  "ml_prediction": {
+    "risk_level": "HIGH",
+    "risk_score": 0.6152,
+    "confidence_percentage": 61.52,
+    "class_probabilities": {
+      "HIGH": 0.6152,
+      "MODERATE": 0.2411,
+      "LOW": 0.1437
+    }
+  },
+  "digital_twin": {
+    "trend": "STABLE",
+    "observation_count": 5,
+    "alerts": [
+      {
+        "type": "HIGH_RISK",
+        "severity": "HIGH"
+      }
+    ]
+  }
+}

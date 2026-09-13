@@ -1,0 +1,60 @@
+{
+    "model_name": "BLACKBOX CITY Patient Digital Twin",
+    "model_version": "prototype_v1",
+    "model_type": "XGBoost multiclass classifier",
+    "input_features": [
+        "Var1",
+        "Var2",
+        "Var3",
+        "Var4",
+        "Var5",
+        "Online_Follower",
+        "LinkedIn_Shared",
+        "Twitter_Shared",
+        "Facebook_Shared",
+        "Income",
+        "Education_Score",
+        "Age",
+        "City_Type",
+        "Employer_Category",
+        "Registration_Date_year",
+        "Registration_Date_month",
+        "Registration_Date_dayofweek",
+        "First_Interaction_year",
+        "First_Interaction_month",
+        "First_Interaction_dayofweek"
+    ],
+    "numeric_features": [
+        "Var1",
+        "Var2",
+        "Var3",
+        "Var4",
+        "Var5",
+        "Online_Follower",
+        "LinkedIn_Shared",
+        "Twitter_Shared",
+        "Facebook_Shared",
+        "Income",
+        "Education_Score",
+        "Age",
+        "Registration_Date_year",
+        "Registration_Date_month",
+        "Registration_Date_dayofweek",
+        "First_Interaction_year",
+        "First_Interaction_month",
+        "First_Interaction_dayofweek"
+    ],
+    "categorical_features": [
+        "City_Type",
+        "Employer_Category"
+    ],
+    "target": "Risk_Level",
+    "classes": [
+        "HIGH",
+        "LOW",
+        "MODERATE"
+    ],
+    "risk_score_definition": "Probability assigned by XGBoost to the predicted class",
+    "warning": "Risk score is model confidence, not clinical probability.",
+    "clinical_status": "Prototype only"
+}
